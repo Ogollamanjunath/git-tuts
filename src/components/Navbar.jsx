@@ -61,7 +61,7 @@ const Navbar = () => {
               }}
             />
           </IconButton>
-          SASI KIRAN
+          KIRAN
         </Typography>
         <TemporaryDrawer state={state} setState={setState} />
         <Pets sx={{ display: { xs: "block", sm: "none" } }} />
