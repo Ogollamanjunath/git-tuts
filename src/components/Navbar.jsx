@@ -4,6 +4,7 @@ import {
   Avatar,
   Badge,
   Box,
+  IconButton,
   InputBase,
   Menu,
   MenuItem,
@@ -12,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import TemporaryDrawer from "./Drawer";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -44,12 +46,24 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [state, setState] = React.useState(false);
+
   return (
     <AppBar position="sticky">
       <StyledToolbar>
         <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
+          <IconButton onClick={() => setState(true)}>
+            <Pets
+              sx={{
+                display: { xs: "none", sm: "block" },
+                pb: 1,
+                color: "white",
+              }}
+            />
+          </IconButton>
           SASI KIRAN
         </Typography>
+        <TemporaryDrawer state={state} setState={setState} />
         <Pets sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
           <InputBase placeholder="search..." />
